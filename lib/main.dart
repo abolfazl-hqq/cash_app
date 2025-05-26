@@ -23,6 +23,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: backgroundColor,
+    ));
 
     final double screenWidth = MediaQuery.of(context).size.width;
     final box = Hive.box<Deposit>(depositBoxName);
@@ -72,11 +76,8 @@ class HomePage extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(
-                          Icons.home_filled,
-                          size: 35,
-                          color: Colors.white,
-                        ),
+                        icon: const Icon(Icons.home_filled,
+                            size: 35, color: Colors.white),
                       ),
                       IconButton(
                         onPressed: () {},
